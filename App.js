@@ -54,29 +54,29 @@ export default function App() {
       <Header />
       <View style={{ flex: 6, backgroundColor: 'white', height: 500, width: '100%' }}>
 
-        <Text style={{ color: '' }}>Esporte:</Text>
+        <Text style={styles.titulos}>Esporte:</Text>
         <TextInput style={{ borderWidth: 1 }} placeholder="digite seu nome" onChangeText={newText => setText(newText)} defaultValue={text} />
 
-        <Text style={{ color: '' }}>Nome do time 1:</Text>
+        <Text style={styles.titulos}>Nome do time 1:</Text>
         <TextInput style={{ borderWidth: 1 }} onChangeText={newText => setnomeUm(newText)} defaultValue={nomeUm} />
 
-        <Text style={{ color: '' }}>Nome do time 2:</Text>
+        <Text style={styles.titulos}>Nome do time 2:</Text>
         <TextInput style={{ borderWidth: 1 }} onChangeText={newText => setnomeDois(newText)} defaultValue={nomeDois} />
 
-        <Text style={{ color: '' }}>Placar - {text}</Text>
+        <Text style={styles.titulos}>Placar - {text}</Text>
 
-        <Text style={{ color: '' }}>{nomeUm}:, {placarUm} pontos</Text>
-        <Text style={{ color: '' }}>{nomeDois}:, {placarDois} pontos</Text>
+        <Text style={styles.placar}>{nomeUm}:, {placarUm} pontos</Text>
+        <Text style={styles.placar}>{nomeDois}:, {placarDois} pontos</Text>
 
         <Button onPress={() => { setBotao1(false); setBotao2(true); setNomeTime(nomeUm) }} disabled={!botao1} title={botao1 ? nomeUm : "selecionado"} />
         <Button onPress={() => { setBotao2(false); setBotao1(true); setNomeTime(nomeDois) }} disabled={!botao2} title={botao2 ? nomeDois : "selecionado"} />
 
-        <Text style={{ color: '' }}>Cadastre um jogador</Text>
+        <Text style={styles.titulos}>Cadastre um jogador</Text>
         <TextInput style={{ borderWidth: 1 }} placeholder="Nome do jogador" onChangeText={newText => setNomeJogador(newText)} value={nomeJogador} />
         <TextInput style={{ borderWidth: 1 }} placeholder="Número da camiseta" onChangeText={newText => setNumeroCamiseta(newText)} value={numeroCamiseta} />
         <Button onPress= {adicionarJogador} title="Cadastrar" />
 
-        <Text style={{ color: '' }}>Lista de jogadores</Text>
+        <Text style={styles.titulos}>Lista de jogadores</Text>
 
         <FlatList
           data={listadeJogadores}
@@ -128,5 +128,20 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: 'white',
+  },
+
+  placar: {
+    marginLeft: 10,
+    marginBottom: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
+  titulos: {
+    color: 'black',
+    marginTop: 10,
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: 'bold'
   },
 })
